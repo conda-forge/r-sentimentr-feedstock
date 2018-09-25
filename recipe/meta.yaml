@@ -1,4 +1,4 @@
-{% set version = '2.2.3' %}
+{% set version = "2.4.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,7 +11,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/sentimentr_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/sentimentr/sentimentr_{{ version }}.tar.gz
-  sha256: bbaf27f6a0c2864d46753c77a4dc2ac25eeef4c7b12625c18b8f25257de43039
+  sha256: 86ae545b563d89bdf058d6fb351cea4f4f0244dba2bb157c5ff90ec1802e945a
 
 build:
   number: 0
