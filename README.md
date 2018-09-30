@@ -1,7 +1,7 @@
 About r-sentimentr
 ==================
 
-Home: https://cran.r-project.org/package=sentimentr
+Home: http://github.com/trinker/sentimentr
 
 Package license: MIT
 
