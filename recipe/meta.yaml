@@ -14,9 +14,9 @@ source:
   sha256: 86ae545b563d89bdf058d6fb351cea4f4f0244dba2bb157c5ff90ec1802e945a
 
 build:
+  noarch: generic
   merge_build_host: True  # [win]
-  number: 0
-  skip: true  # [win32]
+  number: 1000
   rpaths:
     - lib/R/lib/
     - lib/
