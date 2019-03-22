@@ -1,4 +1,4 @@
-{% set version = "2.6.1" %}
+{% set version = "2.7.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/sentimentr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sentimentr/sentimentr_{{ version }}.tar.gz
-  sha256: d09daf02f24942bf13db51f4e64e555b8b8c7f468a3c9105017c74e8651e91f7
+  sha256: 5a3878c0498b6fa820e9ca4b3eb9455fa25f91b4b7ebabf17ed5fa9bf881be8e
 
 build:
   noarch: generic
