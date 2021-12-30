@@ -1,4 +1,4 @@
-{% set version = "2.9.0" %}
+{% set version = '2.9.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,16 +7,15 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: sentimentr_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/sentimentr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sentimentr/sentimentr_{{ version }}.tar.gz
   sha256: 5ba9d517a013054672869cff99d6543856613aec0c5f0ac6963c1d409d781444
 
 build:
+  merge_build_host: True  # [win]
+  number: 1
   noarch: generic
-  merge_build_host: true  # [win]
-  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -24,11 +23,12 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-data.table
     - r-ggplot2
-    - r-lexicon >=1.0.0
+    - r-lexicon >=1.2.1
     - r-stringi
     - r-syuzhet
     - r-textclean >=0.6.1
@@ -37,7 +37,7 @@ requirements:
     - r-base
     - r-data.table
     - r-ggplot2
-    - r-lexicon >=1.0.0
+    - r-lexicon >=1.2.1
     - r-stringi
     - r-syuzhet
     - r-textclean >=0.6.1
@@ -49,21 +49,37 @@ test:
     - "\"%R%\" -e \"library('sentimentr')\""  # [win]
 
 about:
-  home: http://github.com/trinker/sentimentr
+  home: https://github.com/trinker/sentimentr
   license: MIT
-  summary: Calculate text polarity sentiment at the sentence level and optionally aggregate by rows or grouping variable(s).
+  summary: Calculate text polarity sentiment at the sentence level and optionally aggregate by
+    rows or grouping variable(s).
   license_family: MIT
-
   license_file:
-    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
     - LICENSE
+
 extra:
   recipe-maintainers:
     - conda-forge/r
     - CurtLH
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+
+# Package: sentimentr
+# Title: Calculate Text Polarity Sentiment
+# Version: 2.9.0
+# Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com", role = c("aut", "cre")))
+# Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+# Description: Calculate text polarity sentiment at the sentence level and optionally aggregate by rows or grouping variable(s).
+# Depends: R (>= 3.4.0)
+# Suggests: testthat
+# Imports: data.table, ggplot2, graphics, grid, lexicon (>= 1.2.1), methods, stats, stringi, syuzhet, textclean (>= 0.6.1), textshape (>= 1.3.0), utils
+# License: MIT + file LICENSE
+# Encoding: UTF-8
+# LazyData: TRUE
+# RoxygenNote: 7.1.2
+# URL: https://github.com/trinker/sentimentr
+# BugReports: https://github.com/trinker/sentimentr/issues
+# NeedsCompilation: no
+# Packaged: 2021-10-12 01:16:43 UTC; TylerRinker
+# Author: Tyler Rinker [aut, cre]
+# Repository: CRAN
+# Date/Publication: 2021-10-12 08:30:02 UTC
