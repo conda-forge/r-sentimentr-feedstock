@@ -1,11 +1,11 @@
-About r-sentimentr
-==================
+About r-sentimentr-feedstock
+============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-sentimentr-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/trinker/sentimentr
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-sentimentr-feedstock/blob/main/LICENSE.txt)
 
 Summary: Calculate text polarity sentiment at the sentence level and optionally aggregate by rows or grouping variable(s).
 
