@@ -1,6 +1,5 @@
 {% set version = '2.9.0' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-sentimentr
@@ -13,8 +12,7 @@ source:
   sha256: 5ba9d517a013054672869cff99d6543856613aec0c5f0ac6963c1d409d781444
 
 build:
-  merge_build_host: True  # [win]
-  number: 3
+  number: 4
   noarch: generic
   rpaths:
     - lib/R/lib/
